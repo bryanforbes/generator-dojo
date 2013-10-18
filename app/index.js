@@ -7,7 +7,7 @@ var DojoGenerator = module.exports = function DojoGenerator(args, options) {
 	yeoman.generators.Base.apply(this, arguments);
 
 	this.argument('appname', { type: String, required: false });
-	this.appname = this.appname || path.basename(process.cwd());
+	this.appname = this._.slugify(this.appname || path.basename(process.cwd()));
 
 	this.on('end', function () {
 		this.installDependencies({
