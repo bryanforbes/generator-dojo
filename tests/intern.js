@@ -10,7 +10,7 @@ define({
 	},
 
 	// Non-functional test suite(s) to run in each browser
-	suites: [ 'generator-dojo/test/load', 'generator-dojo/test/creation' ],
+	suites: [ 'generator-dojo/tests/load', 'generator-dojo/tests/creation' ],
 
 	// Functional test suite(s) to run in each browser once non-functional tests are completed
 	functionalSuites: [ /* 'myPackage/tests/functional' */ ],
