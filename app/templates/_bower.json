@@ -1,0 +1,12 @@
+{
+  "name": "<%= appname %>",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+      "dojo": "<%= dojoVersion %>",<% if (dijit) { %>
+      "dijit": "<%= dojoVersion %>",<% } %><% if(dojox) { %>
+      "dojox": "<%= dojoVersion %>",<% } %><% if(dgrid) { %>
+      "dgrid": "<%= dgridVersion %>",<% } %>
+      "util": "dojo-util#<%= dojoVersion %>"
+  }
+}
