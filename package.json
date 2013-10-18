@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "A generator for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+	"dojo"
   ],
   "homepage": "https://github.com/bryanforbes/generator-dojo",
   "bugs": "https://github.com/bryanforbes/generator-dojo/issues",
