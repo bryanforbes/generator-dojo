@@ -89,13 +89,13 @@ module.exports = function (grunt) {
 			}
 		},<% } %>
 		intern: {
-			node: {
+			local: {
 				options: {
 					runType: 'client',
 					config: 'src/<%= appname %>/tests/intern'
 				}
 			},
-			functional: {
+			remote: {
 				options: {
 					runType: 'runner',
 					config: 'src/<%= appname %>/tests/intern'
