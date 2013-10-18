@@ -18,13 +18,13 @@
     "url": "git://github.com/bryanforbes/generator-dojo.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "node node_modules/intern/client.js config=test/intern.js"
   },
   "dependencies": {
     "yeoman-generator": "~0.13.0"
   },
   "devDependencies": {
-    "mocha": "~1.12.0"
+    "intern": "~1.2.1"
   },
   "peerDependencies": {
     "yo": ">=1.0.0-rc.1"
