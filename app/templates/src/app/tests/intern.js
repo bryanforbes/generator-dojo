@@ -60,7 +60,7 @@ define({
 	},
 
 	// Non-functional test suite(s) to run in each browser
-	suites: [ '<%= appname %>/tests/all' ],
+	suites: [ '<%= appname %>/tests/unit' ],
 
 	// Functional test suite(s) to run in each browser once non-functional tests are completed
 	functionalSuites: [ '<%= appname %>/tests/functional' ],

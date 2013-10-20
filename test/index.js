@@ -39,17 +39,23 @@ var TestGenerator = module.exports = function TestGenerator(args, options) {
 	this.appUrl = relativeAppUrl;
 	this.testsUrl = relativeTestsUrl;
 	this.baseUrl = relativeBaseUrl;
+
+	this.on('end', function () {
+		console.log('Don\'t forget to add ' + path.join(this.appname, 'tests', this.subdir, this.name) +
+					' to the dependency list in ' +
+					path.join('src', this.appname, 'tests', (this.functional ? 'functional' : 'unit') + '.js'));
+	}.bind(this));
 };
 
 util.inherits(TestGenerator, yeoman.generators.NamedBase);
 
 TestGenerator.prototype.files = function files() {
-	var testPath = path.join('src', this.appname, 'tests');
+	var testPath = path.join('src', this.appname, 'tests', this.subdir);
 	if (this.functional) {
-		this.template('functional.js', path.join(testPath, this.subdir, this.name + '.js'));
-		this.template('functional.html', path.join(testPath, this.subdir, this.name + '.html'));
+		this.template('functional.js', path.join(testPath, this.name + '.js'));
+		this.template('functional.html', path.join(testPath, this.name + '.html'));
 	}
 	else {
-		this.template('unit.js', path.join(testPath, this.subdir, this.name + '.js'));
+		this.template('unit.js', path.join(testPath, this.name + '.js'));
 	}
 };

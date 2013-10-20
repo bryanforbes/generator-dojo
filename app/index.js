@@ -166,7 +166,7 @@ DojoGenerator.prototype.appPackage = function appPackage() {
 	else {
 		this.template('src/app/resources/main.css', appPath + '/resources/main.css');
 	}
-	this.template('src/app/tests/all.js', appPath + '/tests/all.js');
+	this.template('src/app/tests/unit.js', appPath + '/tests/unit.js');
 	this.template('src/app/tests/functional.js', appPath + '/tests/functional.js');
 	this.template('src/app/tests/dojoConfig.js', appPath + '/tests/dojoConfig.js');
 	this.template('src/app/tests/intern.js', appPath + '/tests/intern.js');
