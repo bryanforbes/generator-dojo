@@ -41,7 +41,7 @@ Because of this structure, a Dojo application is completely agnostic to the serv
 
 ### Dojo
 
-Sets up a new Dojo applicatoin, generating all of the boilerplate to get started. The application generator also optionally installs Dijit, DojoX, dgrid, and Stylus.
+Sets up a new Dojo application, generating all of the boilerplate to get started. The application generator also optionally installs Dijit, DojoX, dgrid, and Stylus.
 
 Example:
 ```bash
