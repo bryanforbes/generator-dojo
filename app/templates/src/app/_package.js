@@ -35,7 +35,7 @@ var profile = {
 		// In this case, we are excluding this package configuration file which is not necessary in a built copy of
 		// the application.
 		miniExclude: function (filename, moduleId) {
-			return (/^<%= appname %>\/test\//).test(moduleId) || moduleId in {
+			return (/^<%= appname %>\/tests\//).test(moduleId) || moduleId in {
 				'<%= appname %>/package': 1
 			};
 		}
