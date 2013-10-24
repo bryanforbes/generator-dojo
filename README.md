@@ -5,7 +5,7 @@ A Dojo application generator for [Yeoman](http://yeoman.io).
 
 ## Getting started
 
-* Make sure you have [https://github.com/yeoman/yo](yo) and [https://github.com/bryanforbes/generator-dojo](generator-dojo) installed:
+* Make sure you have [yo](https://github.com/yeoman/yo) and [generator-dojo](https://github.com/bryanforbes/generator-dojo) installed:
 ```bash
 npm install -g yo generator-dojo
 ```
@@ -50,7 +50,7 @@ yo dojo
 
 ### Test
 
-Generates a unit or functional test for [https://theintern.io](Intern) and places it in `src/<appname>/tests/<test name>.{js,html}`. Optionally receives a `--functional` flag. If the flag is passed, a functional test is generated, otherwise a unit test is generated.
+Generates a unit or functional test for [Intern](http://theintern.io) and places it in `src/<appname>/tests/<test name>.{js,html}`. Optionally receives a `--functional` flag. If the flag is passed, a functional test is generated, otherwise a unit test is generated.
 
 Example:
 ```bash
@@ -90,7 +90,7 @@ grunt server:dist
 
 ### intern
 
-Runs unit and functional tests using [https://theintern.io](Intern). Intern allows web developers to run unit and functional tests in various versions of browsers from the command line.
+Runs unit and functional tests using [Intern](http://theintern.io). Intern allows web developers to run unit and functional tests in various versions of browsers from the command line.
 
 This task takes an optional `target` flag. If this flag is `local`, only local non-browser tests will be run. If this flag is `remote`, only remote tests will be run using Selenium (via SauceLabs or your own Selenium server). If this flag is not passed, both non-browser and remote tests will be run.
 
