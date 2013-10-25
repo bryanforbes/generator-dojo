@@ -6,17 +6,22 @@ A Dojo application generator for [Yeoman](http://yeoman.io).
 ## Getting started
 
 * Make sure you have [yo](https://github.com/yeoman/yo) and [generator-dojo](https://github.com/bryanforbes/generator-dojo) installed:
-```bash
-npm install -g yo generator-dojo
-```
+
+  ```bash
+  npm install -g yo generator-dojo
+  ```
+
 * Make a new directory and traverse into it:
-```bash
-mkdir my-app && cd $_
-```
+
+  ```bash
+  mkdir my-app && cd $_
+  ```
+
 * Run `yo dojo`, optionally passing an application name (the application name and AMD package will default to the directory you are currently in):
-```bash
-yo dojo [app-name]
-```
+
+  ```bash
+  yo dojo [app-name]
+  ```
 
 ## Application layout
 
@@ -25,11 +30,11 @@ yo dojo [app-name]
 ```bash
 src/
     dojo/
-	dijit/
-	dgrid/
-	...
-	my-app/
-	index.html
+    dijit/
+    dgrid/
+    ...
+    my-app/
+    index.html
 ```
 
 Because of this structure, a Dojo application is completely agnostic to the server which delivers it in both development and production environments and requires little to no configuration of the server. It will work equally as well with nginx as it would with Apache Tomcat.
@@ -100,4 +105,7 @@ Removes the `dist` directory (if one exists) to clean up after a build.
 
 ## License
 
-[New BSD License](LICENSE)
+`generator-dojo` is available under the terms of the [New BSD License](LICENSE). All code, with the exception of portions generated from Yeoman's [generator-generator](https://github.com/yeoman/generator-generator), is developed under the terms of the [Dojo Foundation CLA](http://dojofoundation.org/about/cla).
+
+© 2013 Bryan Forbes http://www.reigndropsfall.net<br>
+All rights reserved.
