@@ -114,9 +114,9 @@ module.exports = function (grunt) {
 		}
 
 		grunt.task.run([
-			'stylus:compile',
-			'connect:test',
-			'watch:stylus'
+			<% if (stylus) { %>'stylus:compile',
+			<% } %>'connect:test<% if (!stylus) { %>:keepalive<% } %>'<% if (stylus) { %>,
+			'watch:stylus'<% } %>
 		]);
 	});
 	grunt.registerTask('build', [ <% if (stylus) { %>'stylus:compile', <% } %>'clean', 'dojo:dist', 'copy' ]);
