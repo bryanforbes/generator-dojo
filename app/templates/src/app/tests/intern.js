@@ -15,7 +15,7 @@ define({
 	// Note that the `build` capability will be filled in with the current commit ID from the Travis CI environment
 	// automatically
 	capabilities: {
-		'selenium-version': '2.35.0'
+		'selenium-version': '2.37.0'
 	},
 
 	// Browsers to run integration testing against. Note that version numbers must be strings if used with Sauce
@@ -66,5 +66,5 @@ define({
 	functionalSuites: [ '<%= appname %>/tests/functional' ],
 
 	// A regular expression matching URLs to files that should not be included in code coverage analysis
-	excludeInstrumentation: /^tests\//
+	excludeInstrumentation: /^(?:node_modules|src\/(?:dojo<% if (dijit) { %>|dijit<% } %><% if (dojox) { %>|dojox<% } %><% if (dgrid) { %>|put-selector|xstyle|dgrid<% }%>|<%= appname %>\/tests))\//
 });
