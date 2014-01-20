@@ -44,7 +44,7 @@ DojoGenerator.prototype.askFor = function askFor() {
 	var prompts = [{
 		name: 'dojoVersion',
 		message: 'What version of Dojo will be used?',
-		'default': '~1.9.1'
+		'default': '~1.9.2'
 	}, {
 		type: 'checkbox',
 		name: 'features',
