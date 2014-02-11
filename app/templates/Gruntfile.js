@@ -2,6 +2,7 @@
 module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt, [ 'grunt-*', 'intern-geezer' ]);
 	require('time-grunt')(grunt);
+	
 	var path = require('path');
 
 	var stripComments = /<\!--.*?-->/g,
@@ -50,17 +51,17 @@ module.exports = function (grunt) {
 		connect: {
 			options: {
 				port: 8888,
-				livereload: 35733,
+				<% if (livereload) { %>livereload: 35733,<% } %>
 				hostname: 'localhost'
 			},
-			livereload: {
-                options: {
-                    open: true,
-                    base: [
-                        'src'
-                    ]
-                }
-            },
+			<% if (livereload) { %>livereload: {
+				options: {
+					open: true,
+					base: [
+						'src'
+					]
+				}
+			},<% } %>
 			test: {
 				options: {
 					open: true,
@@ -87,22 +88,22 @@ module.exports = function (grunt) {
 				}]
 			}
 		},
-
-        // Make sure code styles are up to par and there are no obvious mistakes
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc',
-                reporter: require('jshint-stylish')
-            },
-            all: [
-                'Gruntfile.js',
-                'src/<%= appname %>/{,*/}*.js',
-                '!src/<%= appname %>/dojo/*',
-                '!src/<%= appname %>/dijit/*',
-                '!src/<%= appname %>/dojox/*'
-                //'test/spec/{,*/}*.js'
-            ]
-        },<% if (stylus) { %>
+		<% if (jshint) { %>
+		// Make sure code styles are up to par and there are no obvious mistakes
+		jshint: {
+			options: {
+				jshintrc: '.jshintrc',
+				reporter: require('jshint-stylish')
+			},
+			all: [
+				'Gruntfile.js',
+				'src/<%= appname %>/{,*/}*.js',
+				'!src/<%= appname %>/dojo/*',
+				'!src/<%= appname %>/dijit/*',
+				'!src/<%= appname %>/dojox/*'
+				//'test/spec/{,*/}*.js'
+			]
+		},<% } %><% if (stylus) { %>
 		stylus: {
 			compile: {
 				options: {
@@ -115,27 +116,27 @@ module.exports = function (grunt) {
 			}
 		},<% } %>
 		watch: {
-			js: {
-                files: ['src/<%= appname %>/{,*/}*.js'],
-                tasks: ['jshint'],
-                options: {
-                    livereload: true
-                }
-            },
-            gruntfile: {
-                files: ['Gruntfile.js']
-            },
-            livereload: {
-                options: {
-                    livereload: '<%%= connect.options.livereload %>'
-                },
-                files: [
-                    'src/{,*/}*.html',
-                    'src/<%= appname %>/styles/{,*/}*.css',
+			<% if (jshint) { %>js: {
+				files: ['src/<%= appname %>/{,*/}*.js'],
+				tasks: ['jshint'],
+				options: {
+					livereload: <%= livereload %>
+				}
+			},<% } %>
+			gruntfile: {
+				files: ['Gruntfile.js']
+			},
+			<% if (livereload) { %>livereload: {
+				options: {
+					livereload: '<%%= connect.options.livereload %>'
+				},
+				files: [
+					'src/{,*/}*.html',
+					'src/<%= appname %>/styles/{,*/}*.css',
 					'src/<%= appname %>/{,*/}*.js',
-                    'src/<%= appname %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
-                ]
-            }<% if (stylus) { %>,
+					'src/<%= appname %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
+				]
+			},<% } %><% if (stylus) { %>
 			stylus: {
 				files: 'src/<%= appname %>/resources/**/*.styl',
 				tasks: [ 'stylus:compile' ]
@@ -160,7 +161,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('default',
 		[
 			<% if (stylus) { %>'stylus:compile',<% } %>
-			'jshint',
+			<% if (jshint) { %>'jshint',<% } %>
 			'watch'
 		]
 	);
@@ -175,9 +176,9 @@ module.exports = function (grunt) {
 
 		grunt.task.run(
 			[
-				'jshint',
+				<% if (jshint) { %>'jshint',<% } %>
 				<% if (stylus) { %>'stylus:compile',
-				<% } %>'connect:livereload<% if (!stylus) { %>:keepalive<% } %>',
+				<% } %>'connect:test<% if (livereload) { %>:livereload<% } %><% if (!stylus) { %>:keepalive<% } %>',
 				'watch'
 			]
 		);
@@ -186,7 +187,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('build',
 		[
 			<% if (stylus) { %>'stylus:compile',<% } %>
-			'jshint',
+			<% if (jshint) { %>'jshint',<% } %>
 			'clean',
 			'dojo:dist',
 			'copy'
