@@ -40,12 +40,14 @@ define([
 				];
 
 			helpers.mockPrompt(app, {
-				'dojoVersion': '1.9.1',
+				'dojoVersion': '1.9.2',
 				'features': [ 'dijit', 'dgrid', 'stylus' ],
 				'dgridVersion': '0.3.10',
 				'nib': true,
 				'compression': 'closure',
-				'travisci': false
+				'travisci': false,
+				'jshint' : true,
+				'livereload' : true
 			});
 			app.options['skip-install'] = true;
 			app.run({}, function () {

@@ -44,7 +44,7 @@ DojoGenerator.prototype.askFor = function askFor() {
 	var prompts = [{
 		name: 'dojoVersion',
 		message: 'What version of Dojo will be used?',
-		'default': '~1.9.1'
+		'default': '~1.9.2'
 	}, {
 		type: 'checkbox',
 		name: 'features',
@@ -113,6 +113,17 @@ DojoGenerator.prototype.askFor = function askFor() {
 			return answers.travisci;
 		},
 		'default': process.env.SAUCE_ACCESS_KEY || ''
+	}, {
+		type : 'confirm',
+		name : 'jshint',
+		message : 'Do you want to run JSHint during the build process?',
+		'default' : true
+	},
+	{
+		type : 'confirm',
+		name : 'livereload',
+		message : 'Do you want to enable live reloading on javascript changes for the server task?',
+		'default' : true
 	}];
 
 	this.prompt(prompts, function (props) {
@@ -131,6 +142,8 @@ DojoGenerator.prototype.askFor = function askFor() {
 		this.putSelectorVersion = props.putSelectorVersion;
 		this.xstyleVersion = props.xstyleVersion;
 		this.compression = props.compression;
+		this.jshint = props.jshint;
+		this.livereload = props.livereload;
 		cb();
 	}.bind(this));
 };
