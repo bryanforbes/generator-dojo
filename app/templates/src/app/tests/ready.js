@@ -1,4 +1,4 @@
-var testReady = 0;
+var __ready__ = false;
 define([
 	'dojo/promise/all',
 	'dojo/Deferred',
@@ -12,6 +12,9 @@ define([
 			return deferred;
 		}
 	};
+	function done() {
+		__ready__ = true;
+	}
 	var req = function (config, deps, callback) {
 		if (!callback) {
 			callback = deps;
@@ -27,11 +30,9 @@ define([
 	};
 	if (typeof window.initializeTest === 'function') {
 		window.initializeTest.call(context, req);
-		all(promises).then(function () {
-			testReady = 1;
-		});
+		all(promises).then(done);
 	}
 	else {
-		testReady = 1;
+		done();
 	}
 });

@@ -171,6 +171,7 @@ DojoGenerator.prototype.appPackage = function appPackage() {
 	this.template('src/app/tests/dojoConfig.js', appPath + '/tests/dojoConfig.js');
 	this.template('src/app/tests/intern.js', appPath + '/tests/intern.js');
 	this.template('src/app/tests/ready.js', appPath + '/tests/ready.js');
+	this.template('src/app/tests/remoteReady.js', appPath + '/tests/remoteReady.js');
 };
 
 DojoGenerator.prototype.runtime = function runtime() {

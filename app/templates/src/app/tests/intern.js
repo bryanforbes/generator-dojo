@@ -15,7 +15,7 @@ define({
 	// Note that the `build` capability will be filled in with the current commit ID from the Travis CI environment
 	// automatically
 	capabilities: {
-		'selenium-version': '2.37.0'
+		'selenium-version': '2.41.0'
 	},
 
 	// Browsers to run integration testing against. Note that version numbers must be strings if used with Sauce
@@ -33,15 +33,14 @@ define({
 	// Maximum number of simultaneous integration tests that should be executed on the remote WebDriver service
 	maxConcurrency: 3,
 
-	// Whether or not to start Sauce Connect before running tests
-	useSauceConnect: true,
+	// Name of the tunnel class to use for WebDriver tests
+	tunnel: 'SauceLabsTunnel',
 
-	// Connection information for the remote WebDriver service. If using Sauce Labs, keep your username and password
-	// in the SAUCE_USERNAME and SAUCE_ACCESS_KEY environment variables unless you are sure you will NEVER be
-	// publishing this configuration file somewhere
-	webdriver: {
-		host: 'localhost',
-		port: 4444
+	// The desired AMD loader to use when running unit tests (client.html/client.js). Omit to use the default Dojo
+	// loader
+	useLoader: {
+		'host-node': 'dojo/dojo',
+		'host-browser': 'node_modules/dojo/dojo.js'
 	},
 
 	// Configuration options for the module loader; any AMD configuration options supported by the Dojo loader can be
