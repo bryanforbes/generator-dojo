@@ -44,7 +44,7 @@ DojoGenerator.prototype.askFor = function askFor() {
 	var prompts = [{
 		name: 'dojoVersion',
 		message: 'What version of Dojo will be used?',
-		'default': '~1.10.0'
+		'default': '1.10.0'
 	}, {
 		type: 'checkbox',
 		name: 'features',
@@ -70,7 +70,7 @@ DojoGenerator.prototype.askFor = function askFor() {
 		name: 'dgridVersion',
 		message: 'What version of dgrid?',
 		when: dgridIncluded,
-		'default': '~0.3.15'
+		'default': '0.3.15'
 	}, {
 		type: 'confirm',
 		name: 'nib',
