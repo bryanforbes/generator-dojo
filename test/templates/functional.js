@@ -1,7 +1,7 @@
 define([
 	'intern!object',
 	'intern/chai!assert',
-	'<%= appname %>/tests/remoteReady',
+	'<%= testsUrl %>/remoteReady',
 	'require'
 ], function (registerSuite, assert, remoteReady, require) {
 	registerSuite({
