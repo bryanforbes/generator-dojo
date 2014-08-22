@@ -25,7 +25,7 @@
     "yeoman-generator": "^0.16.0"
   },
   "devDependencies": {
-    "intern": "2.0.2"
+    "intern": "2.0.3"
   },
   "engines": {
     "node": ">=0.8.0",
